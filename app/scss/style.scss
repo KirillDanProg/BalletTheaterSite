@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: initial;
+}
+
+body {
+  background-color: #f4eede;
+  background-image: url(../img/bg-uzor-8.png);
+  background-size: contain;
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+.fa-solid {
+  position: absolute;
+  font-size: 24px;
+  color: #f4eede;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+.header .logo {
+  position: relative;
+}
+
+.header .logo img {
+  width: 100%;
+}
+
+.header {
+  .nav {
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    width: 40%;
+    -webkit-transform: translateX(150%);
+    transform: translateX(150%);
+    -webkit-transition: 1.5s;
+    transition: 1.5s;
+    background-color: #f4eede;
+    z-index: 4;
+    display: none;
+    .nav__item {
+      margin: 12px;
+      padding: 10px 20px;
+      border-left: 3px solid #c0ab77;
+      background-color: lightgray;
+    }
+  }
+  .active {
+    transform: translateX(0);
+    display: block;
+    transition: 2s;
+  }
+}
+
+.banner {
+  text-align: center;
+
+  .banner-img {
+    position: absolute;
+    -webkit-transition: 2s;
+    transition: 2s;
+    max-width: 100%;
+    opacity: 0;
+  }
+  .active-slide {
+    opacity: 1;
+    transition: 2s;
+  }
+  .banner-img3 {
+   max-width: 100%;
+   visibility: hidden;
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(182, 181, 181);
+    border-radius: 50%;
+  }
+  .active-dot {
+    background-color: rgb(107, 107, 107);
+  }
+}
+.events {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 170px));
+  gap: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+.events__title {
+  text-align: center;
+  margin-top: 16px;
+  text-shadow: 0 0 1px #c0ab77;
+}
+
+.event {
+  max-width: 200px;
+  height: 250px;
+  margin: 12px auto;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.882);
+  text-align: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  overflow: scroll;
+}
+
+.event__img {
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+  border-radius: 4px;
+  -webkit-box-shadow: 2px 2px 5px lightgray;
+  box-shadow: 2px 2px 5px lightgray;
+}
+
+.event__name {
+  color: #c0ab77;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.event__info {
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
+
+// @media screen and (min-width: 1030px) {
+//   .container {
+//   }
+// }
