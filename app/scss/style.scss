@@ -10,12 +10,12 @@ $gold: #c0ab77;
 }
 
 body {
-  font-family: 'PT Serif', serif;
+  font-family: "PT Serif", serif;
   background-color: #fffdf8;
   background-image: url(../img/bg-uzor-8.png);
   background-size: contain;
   .container {
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
   }
 }
@@ -38,25 +38,68 @@ body {
   .nav {
     position: absolute;
     right: 0;
-    height: 100vh;
-    width: 40%;
-    -webkit-transform: translateX(150%);
-    transform: translateX(150%);
+    height: 100%;
+    width: 0;
+    overflow: hidden;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
     -webkit-transition: 1.5s;
     transition: 1.5s;
     background-color: #f4eede;
     z-index: 4;
-    display: none;
     .nav__item {
-      margin: 12px;
-      padding: 10px 20px;
+      position: relative;
+      cursor: pointer;
       border-left: 3px solid $gold;
       background-color: lightgray;
+      .fa-solid {
+        top: 50%;
+        right: 12px;
+        transform: translate(0, -50%);
+        color: rgb(75, 75, 75);
+        font-size: 12px;
+      }
+    }
+    .nav__link {
+      display: block;
+      margin-bottom: 8px;
+      padding: 10px 12px;
+    }
+    .drop-test {
+      position: relative;
+      margin: 12px;
+      overflow: hidden;
+      .drop-cont {
+        height: 0;
+        // transform: translateY(-100%);
+        transition: 1s;
+        a {
+          display: block;
+          padding: 8px;
+          border-bottom: 0.5px solid;
+        }
+      }
+      .dropdown-active {
+        // transform: translateY(0);
+        transition: 1s;
+        height: auto;
+      }
     }
   }
   .active {
     transform: translateX(0);
-    display: block;
+    width: 55%;
+    transition: 1s;
+  }
+  .dropdown {
+    font: {
+      size: 14px;
+    }
+    position: absolute;
+    padding: 4px;
+    background-color: #fff;
+    z-index: 5;
+    transform: translateX(-100%);
     transition: 2s;
   }
 }
@@ -75,9 +118,9 @@ body {
     opacity: 1;
     transition: 2s;
   }
-  .banner-img3 {
-   max-width: 100%;
-   visibility: hidden;
+  .banner-box {
+    max-width: 100%;
+    visibility: hidden;
   }
 }
 
@@ -87,13 +130,11 @@ body {
   .dot {
     width: 8px;
     height: 8px;
+    margin-right: 3px;
     background-color: rgb(182, 181, 181);
     border-radius: 50%;
   }
-  .dot:nth-child(2) {
-    margin-left: 3px;
-    margin-right: 3px;
-  }
+
   .active-dot {
     background-color: rgb(107, 107, 107);
   }
@@ -101,10 +142,9 @@ body {
 .events {
   display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 170px));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 10px;
   text-align: center;
-  margin: 0 auto;
 }
 .events__title {
   text-align: center;
@@ -114,12 +154,11 @@ body {
 
 .event {
   max-width: 200px;
-  height: 250px;
+  height: 350px;
   margin: 12px auto;
   padding: 12px;
   background-color: rgba(255, 255, 255, 0.882);
   text-align: center;
-  justify-content: space-between;
   border-radius: 4px;
   border: 0.3px solid $gold;
   overflow: scroll;
@@ -131,20 +170,24 @@ body {
     -webkit-box-shadow: 2px 2px 5px lightgray;
     box-shadow: 2px 2px 5px lightgray;
   }
-  
+
   &__name {
     color: $gold;
     font-size: 18px;
     margin-bottom: 4px;
   }
-  
+
   &__info {
     text-align: center;
   }
 }
 .title {
   margin-top: 15px;
-  text-align: center;
+  font: {
+    weight: normal;
+    size: 24px;
+  }
+  margin-left: 32px;
 }
 .news {
   display: grid;
@@ -160,7 +203,6 @@ body {
       margin: 4px;
       font-weight: bold;
       color: $gold;
-
     }
     .news__item-link {
       display: inline-block;
@@ -169,22 +211,165 @@ body {
       font-weight: bold;
       cursor: pointer;
     }
-    
   }
 }
 
 footer {
-display: flex;
-flex-wrap: wrap;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 15px;
   padding: 15px;
   // padding-top: 15px;
   // padding-bottom: 15px;
   background-color: #383838;
-  img {
+}
 
+@media screen and (min-width: 830px) {
+  body {
+    background: {
+      image: url(../images/bg-uzor-8.png);
+      position: center;
+      size: cover;
+      // repeat: no-repeat;
+      color: #f8f1df;
+    }
+    .header {
+      .nav {
+        all: unset;
+        .nav_menu {
+          display: flex;
+          justify-content: space-evenly;
+          gap: 2px;
+
+          .nav__item {
+            all: unset;
+            width: 100%;
+            text-align: center;
+            background-color: rgb(246, 246, 246);
+            &:hover {
+              background-color: rgb(203, 203, 203);
+            }
+          }
+          .nav__link {
+            margin-bottom: 0;
+            background-color: rgb(239, 239, 239);
+          }
+          .drop-cont {
+            display: none;
+          }
+        }
+        .drop-test {
+          all: unset;
+          margin: 0;
+          flex: auto;
+        }
+      }
+    }
+  }
+  .wrapper {
+    width: 830px;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+
+  .fa-solid {
+    visibility: hidden;
+    color: black;
+  }
+  footer {
+    width: 100%;
+    margin-top: 50px;
   }
 }
+
+// poster scss
+.posters {
+  font-family: "EB Garamond", serif;
+}
+.poster {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 50px;
+  padding-top: 16px;
+  gap: 20px;
+  text-align: center;
+  .col__date {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    .day {
+      font: {
+        size: 64px;
+        weight: 700;
+      }
+    }
+    .month {
+      font-size: 24;
+    }
+    .hour {
+      font-size: 24;
+    }
+  }
+  .col__date > p {
+    color: $gold;
+    .month {
+    }
+    .hour {
+    }
+  }
+}
+
+.info__name {
+  margin: 16px 0;
+  font-size: 24px;
+  color: $gold;
+}
+
+.col__ticket {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 5px 10px;
+  background-color: #dba500;
+  color: #fff;
+  align-self: flex-start;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media screen and (max-width: 750px) {
+  .col__date {
+    width: 100%;
+  }
+}
+
+// about html
+.about {
+  padding: 16px;
+
+  img {
+    width: 100%;
+  }
+}
+.para {
+  margin-top: 10px;
+}
+
+// contacts html
+.contact {
+  border-bottom: 0.2px solid $gold;
+  padding: 10px 32px;
+  line-height: 1.5;
+  .contact__link {
+    display: block;
+    color: $gold;
+  }
+  .contact__link:hover {
+    color: rgb(175, 160, 74);
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
-
-
