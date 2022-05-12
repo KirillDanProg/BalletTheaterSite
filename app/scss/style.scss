@@ -226,64 +226,6 @@ footer {
   background-color: #383838;
 }
 
-@media screen and (min-width: 830px) {
-  body {
-    background: {
-      image: url(../images/bg-uzor-8.png);
-      position: center;
-      size: cover;
-      // repeat: no-repeat;
-      color: #f8f1df;
-    }
-    .header {
-      .nav {
-        all: unset;
-        .nav_menu {
-          display: flex;
-          justify-content: space-evenly;
-          gap: 2px;
-
-          .nav__item {
-            all: unset;
-            width: 100%;
-            text-align: center;
-            background-color: rgb(246, 246, 246);
-            &:hover {
-              background-color: rgb(203, 203, 203);
-            }
-          }
-          .nav__link {
-            margin-bottom: 0;
-            background-color: rgb(239, 239, 239);
-          }
-          .drop-cont {
-            display: none;
-          }
-        }
-        .drop-test {
-          all: unset;
-          margin: 0;
-          flex: auto;
-        }
-      }
-    }
-  }
-  .wrapper {
-    width: 830px;
-    margin: 0 auto;
-    background-color: #fff;
-  }
-
-  .fa-solid {
-    visibility: hidden;
-    color: black;
-  }
-  footer {
-    width: 100%;
-    margin-top: 50px;
-  }
-}
-
 // poster scss
 .posters {
   font-family: "EB Garamond", serif;
@@ -369,6 +311,127 @@ footer {
   }
   .contact__link:hover {
     color: rgb(175, 160, 74);
+  }
+}
+
+// classic html
+.title__class {
+  margin: 12px 0;
+  text-align: center;
+}
+.ballet {
+  margin: 16px 0;
+  padding: 16px 0;
+  text-align: center;
+
+  border-bottom: 0.3px solid black;
+  .ballet__name {
+    font-size: 24px;
+    color: $gold;
+  }
+}
+
+
+@media screen and (min-width: 830px) {
+  body {
+    background: {
+      image: url(../images/bg-uzor-8.png);
+      position: center;
+      size: cover;
+      // repeat: no-repeat;
+      color: #f8f1df;
+    }
+    .header {
+      .nav {
+        all: unset;
+        .nav_menu {
+          display: flex;
+          justify-content: space-evenly;
+          gap: 2px;
+
+          .nav__item {
+            all: unset;
+            width: 100%;
+            text-align: center;
+            background-color: rgb(246, 246, 246);
+            &:hover {
+              background-color: rgb(203, 203, 203);
+            }
+          }
+          .nav__link {
+            margin-bottom: 0;
+            padding: 8px ;
+            background-color: rgb(239, 239, 239);
+          }
+          .nav__link:hover {
+            transition: 0.3s;
+            background-color: rgb(224, 223, 223);
+          }
+          .drop-cont {
+            display: none;
+          }
+        }
+        .drop-test {
+          position: relative;
+          all: unset;
+          margin: 0;
+          flex: auto;
+        }
+        .drop-test:hover {
+          .drop-cont {
+            position: absolute;
+            display: block;
+            padding: 8px;
+            height: auto;
+            background-color: rgb(239, 239, 239);
+            box-shadow: 0 2px 5px rgb(218, 218, 218);
+            a:hover{
+              background-color: rgb(224, 223, 223);
+            transition: 0.3s;
+
+
+            }
+          }
+        }
+      }
+    }
+  }
+  .wrapper {
+    width: 830px;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+
+  .fa-solid {
+    visibility: hidden;
+    color: black;
+  }
+  footer {
+    width: 100%;
+    margin-top: 50px;
+  }
+  .ballet {
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   .ballet__name {
+     width: 100%;
+     text-align: left;
+     margin: 4px auto auto 32px;
+     order: 0;
+   }
+   img {
+     align-self: flex-start;
+     order: 1;
+     width: 35%;
+     border-radius: 10px;
+     margin: 12px;
+   }
+   .ballet__info {
+     order: 2;
+     width: 60%;
+     margin-left: 8px;
+   }
   }
 }
 

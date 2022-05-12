@@ -8,7 +8,6 @@ const dropdownBox = document.querySelectorAll(".drop-cont");
 let swipeStartX = null;
 let swipeEndX = null;
 
-
 function showNav() {
   if (!menu.classList.contains("active")) {
     document.body.style.overflow = "hidden";
@@ -51,7 +50,7 @@ function swipeStart(e) {
 }
 function swipeEnd(e) {
   swipeEndX = e.changedTouches[0].pageX;
-  if (swipeStartX < swipeEndX) {
+  if (Math.abs(swipeStartX - swipeEndX) > 20){
     menu.classList.remove("active");
   }
 }
