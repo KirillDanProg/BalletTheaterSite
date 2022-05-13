@@ -43,8 +43,8 @@ body {
     overflow: hidden;
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
-    -webkit-transition: 1.5s;
-    transition: 1.5s;
+    -webkit-transition: 0.8s;
+    transition: 0.8s;
     background-color: #f4eede;
     z-index: 4;
     .nav__item {
@@ -87,7 +87,7 @@ body {
   }
   .active {
     transform: translateX(0);
-    width: 55%;
+    width: 50%;
     transition: 1s;
   }
   .dropdown {
