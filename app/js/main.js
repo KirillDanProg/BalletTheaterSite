@@ -5,7 +5,7 @@ menuBtn.addEventListener("click", showNav);
 // slider
 import { nextSlide, showSlide, currentSlide, images } from "./slider.js";
 const intervalID = setInterval(nextSlide, 10000);
-clearInterval(intervalID);
+// clearInterval(intervalID);
 
 // indicators slider
 import { activeDot, dots, getDot } from "./indicators.js";
